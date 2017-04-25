@@ -343,12 +343,12 @@ struct fann *fann_create_from_fd_1_1(FILE * conf, const char *configuration_file
 
 #define fann_scanf(type, name, val) \
 { \
-	if(fscanf(conf, name"="type"\n", val) != 1) \
-	{ \
-		fann_error(NULL, FANN_E_CANT_READ_CONFIG, name, configuration_file); \
-		fann_destroy(ann); \
-		return NULL; \
-	} \
+if(fscanf(conf, name"=" type "\n", val) != 1) \
+{ \
+fann_error(NULL, FANN_E_CANT_READ_CONFIG, name, configuration_file); \
+fann_destroy(ann); \
+return NULL; \
+} \
 }
 
 #define fann_skip(name) \
